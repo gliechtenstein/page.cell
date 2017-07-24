@@ -1,6 +1,6 @@
 var page = function(options) {
   var stub = {
-    class: "page hidden",
+    class: "page hidden", 
     $init: function() { this.class = "page"; },
     _hide: function() { this.class = 'page hidden'; }
   }

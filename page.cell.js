@@ -1,7 +1,12 @@
 var page = function(options) {
   var stub = {
-    class: "page hidden", 
-    $init: function() { this.class = "page"; },
+    class: "page hidden",
+    $init: function() {
+      if (options.$init) {
+        options.$init();
+      }
+      this.class = "page";
+    },
     _hide: function() { this.class = 'page hidden'; }
   }
   for(var key in options) { stub[key] = options[key]; }
@@ -14,6 +19,7 @@ var pages = function(options) {
         ".page": {
           "display": "block",
           "position": "absolute",
+          "overflow": "auto",
           "top": "0",
           "left": "0",
           "width": "100%",

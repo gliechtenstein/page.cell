@@ -1,0 +1,31 @@
+<html>
+<script src="https://www.celljs.org/cell.js"></script>
+<script src="https://gliechtenstein.github.io/css.cell/css.cell.js"></script>
+<script src="../page.cell.js"></script>
+<script src="../examples/increment.js"></script>
+<script>
+var c = {
+  $cell: true,
+  $type: "body",
+  style: {
+    height: "100%",
+    width: "100%",
+    margin: 0,
+  },
+  onkeydown: function(e) {
+    console.log("keyup");
+    if (e.keyCode === 37) {
+      // left
+      document.querySelector(".pages")._prev();
+    } else if (e.keyCode === 39) {
+      // right
+      document.querySelector(".pages")._next(template(++this._index));
+    }
+  },
+  _index: 0,
+  $components: [
+    pages(template(0))
+  ]
+}
+</script>
+</html>
